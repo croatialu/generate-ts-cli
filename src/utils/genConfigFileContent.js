@@ -8,11 +8,11 @@ const getConfigFileContent = () => {
   }
 
   return {
-    swaggerUrl: "",
-    outputTsUrl: "",
-    outputTsFileName: "",
-    baseUrl: "",
-    template: "",
+    swaggerUrl: "http://127.0.0.1:5501/swagger.json",
+    outputTsUrl: "template",
+    outputTsFileName: "demo",
+    baseUrl: "www.google.com",
+    template: "Axios",
   };
 };
 
