@@ -12,7 +12,6 @@ async function generateTs(config = {}) {
     outputTsUrl = "",
     outputTsFileName = "",
   } = config;
-  console.log(config, "config");
   const swagger = await getSwaggerContent(swaggerUrl);
   await writeSwaggerJSon(swagger);
 
