@@ -3,3 +3,5 @@ node_modules
 source
 template
 swagger.json
+
+.generateTs.config.json

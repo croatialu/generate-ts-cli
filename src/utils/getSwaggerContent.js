@@ -6,6 +6,7 @@ const axios = require("axios");
 require("https").globalAgent.options.ca = require("ssl-root-cas/latest").create();
 
 const getSwaggerContent = async (swaggerUrl) => {
+  console.log(swaggerUrl, "getSwaggerContent");
   if (swaggerUrl.startsWith("http")) {
     // 外链
     return new Promise((resolve, reject) => {

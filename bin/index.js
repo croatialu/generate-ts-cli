@@ -3,28 +3,23 @@
 const fs = require("fs");
 const path = require("path");
 const { program } = require("commander");
-const generateTs = require("../lib/generateTs");
 
-const initCommander = require("./../scripts/commander/init");
+const { initConfigJson, compile, getConfigFileContent } = require("../src");
 
 program.version("0.0.1");
 
-let staticConfig = {};
+let staticConfig = getConfigFileContent();
 
-const configPath = path.join(__dirname, "../generateTs.config.json");
-// 配置文件如果存在则读取
-if (fs.existsSync(configPath)) {
-  staticConfig = require(configPath);
-}
-
-program.option("-y, --yes", "跳过config配置");
-
+program
+  .command("init")
+  .description("初始化config文件")
+  .action(async () => {
+    await initConfigJson();
+  });
+program
+  .command("compile")
+  .description("json => ts")
+  .action(async () => {
+    await compile(staticConfig);
+  });
 program.parse(process.argv);
-
-const promise = program.yes
-  ? generateTs(staticConfig)
-  : initCommander(staticConfig);
-
-promise.then(() => {
-  process.exit();
-});
