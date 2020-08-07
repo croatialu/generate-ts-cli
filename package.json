@@ -1,0 +1,25 @@
+{
+  "name": "generateTs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "generateTs": "./bin/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "nswag": "^13.7.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "commander": "^6.0.0",
+    "inquirer": "^7.3.3",
+    "shelljs": "^0.8.4"
+  }
+}
