@@ -3,6 +3,7 @@
 const fs = require("fs");
 const path = require("path");
 const { program } = require("commander");
+const generateTs = require("../lib/generateTs");
 
 const initCommander = require("./../scripts/commander/init");
 
@@ -15,11 +16,14 @@ if (fs.existsSync(path.resolve("generateTs.config.json"))) {
   staticConfig = require(path.resolve("generateTs.config.json"));
 }
 
-program
-  .command("init")
-  .description("generator a ts file")
-  .action(function () {
-    initCommander(staticConfig);
-  });
+program.option("-y, --yes", "跳过config配置");
 
 program.parse(process.argv);
+
+const promise = program.yes
+  ? generateTs(staticConfig)
+  : initCommander(staticConfig);
+
+promise.then(() => {
+  process.exit();
+});
