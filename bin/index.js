@@ -11,9 +11,10 @@ program.version("0.0.1");
 
 let staticConfig = {};
 
+const configPath = path.join(__dirname, "../generateTs.config.json");
 // 配置文件如果存在则读取
-if (fs.existsSync(path.resolve("generateTs.config.json"))) {
-  staticConfig = require(path.resolve("generateTs.config.json"));
+if (fs.existsSync(configPath)) {
+  staticConfig = require(configPath);
 }
 
 program.option("-y, --yes", "跳过config配置");

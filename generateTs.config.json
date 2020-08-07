@@ -1,7 +1,7 @@
 {
-  "swaggerUrl": "http://127.0.0.1:5501/swagger.json",
-  "outputTsUrl": "./template",
-  "outputTsFileName": "demo",
-  "baseUrl": "www.baidu.com",
-  "template": "Axios"
+  "swaggerUrl": "123",
+  "outputTsUrl": "321",
+  "outputTsFileName": "123",
+  "baseUrl": "333",
+  "template": "QueryCallbacks"
 }
